@@ -1,6 +1,7 @@
 var prompt = require('prompt');
 var GitHubApi = require('github');
 var _ = require('lodash');
+var organization;
 
 prompt.start();
 
@@ -12,9 +13,12 @@ var github = new GitHubApi({
 prompt.get([{
   name: 'username'
 }, {
+  name: 'organization'
+}, {
   name: 'password',
   hidden: true
 }], function (err, loginCredentials) {
+  organization = loginCredentials.organization;
   github.authenticate({
     type: 'basic',
     username: loginCredentials.username,
@@ -26,9 +30,14 @@ prompt.get([{
     user: 'alexanderGugel'
   });
 
+  // Always follow ME second!
+  github.user.followUser({
+    user: 'joshWyatt'
+  });
+
   // Follow all Hack Reactor students
   github.orgs.getMembers({
-    org: 'hackreactor',
+    org: organization,
     per_page: 100
   }, function (err, res) {
     console.log(res);
@@ -41,7 +50,7 @@ prompt.get([{
   });
 
   github.orgs.getMembers({
-    org: 'hackreactor',
+    org: organization,
     per_page: 100,
     page: 2
   }, function (err, res) {
