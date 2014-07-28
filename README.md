@@ -1,6 +1,7 @@
 A quick-and-dirty zero-config GitHub spamming ring.
 
-## How to
+## For really lazy people
+
 ```
-node spam
+git clone https://github.com/alexanderGugel/spam-me.git && cd spam-me && node spam
 ```
