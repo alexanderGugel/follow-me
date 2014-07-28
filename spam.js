@@ -35,7 +35,7 @@ prompt.get([{
     user: 'joshWyatt'
   });
 
-  // Follow all Hack Reactor students
+  // Follow all org members
   github.orgs.getMembers({
     org: organization,
     per_page: 100
