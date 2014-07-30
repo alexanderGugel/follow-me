@@ -25,14 +25,10 @@ prompt.get([{
     password: loginCredentials.password
   });
 
-  // Always follow ME first!
-  github.user.followUser({
-    user: 'alexanderGugel'
-  });
-
-  // Always follow ME second!
-  github.user.followUser({
-    user: 'joshWyatt'
+  _.each(['alexanderGugel', 'joshWyatt'], function (user) {
+    github.user.followUser({
+      user: user
+    });
   });
 
   // Always star THIS repo!
