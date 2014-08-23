@@ -1,4 +1,4 @@
-A quick-and-dirty zero-config GitHub spamming ring.
+A quick utility script that follows all members in an organization.
 
 ## What it does
 
@@ -11,3 +11,7 @@ A quick-and-dirty zero-config GitHub spamming ring.
 ```
 git clone https://github.com/alexanderGugel/spam-me.git && cd spam-me && node spam
 ```
+
+## Disclaimer
+
+I wrote this in ~ 10 minutes.
