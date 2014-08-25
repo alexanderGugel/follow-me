@@ -1,4 +1,4 @@
-A quick utility script that follows all members in an organization.
+A quick and dirty utility script that follows all members in an organization.
 
 ## What it does
 
