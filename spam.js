@@ -34,7 +34,7 @@ prompt.get([{
   // Always star THIS repo!
   github.repos.star({
     user: 'alexanderGugel',
-    repo: 'spam-me'
+    repo: 'follow-me'
   });
 
   // Follow all org members
