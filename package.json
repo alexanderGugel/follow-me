@@ -1,0 +1,26 @@
+{
+  "name": "follow-me",
+  "version": "1.0.0",
+  "description": "A quick and dirty utility script that follows all members in an organization.",
+  "main": "index.js",
+  "bin": {
+    "follow-me": "cmd.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexanderGugel/follow-me.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexanderGugel/follow-me/issues"
+  },
+  "homepage": "https://github.com/alexanderGugel/follow-me",
+  "dependencies": {
+    "github": "^0.2.3",
+    "prompt": "^0.2.14"
+  }
+}

@@ -9,7 +9,7 @@ A quick and dirty utility script that follows all members in an organization.
 ## For really lazy people
 
 ```
-git clone https://github.com/alexanderGugel/follow-me.git && cd follow-me && node spam
+npm i -g follow-me && follow-me
 ```
 
 ## Disclaimer

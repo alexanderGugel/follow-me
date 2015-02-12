@@ -1,6 +1,5 @@
 var prompt = require('prompt');
 var GitHubApi = require('github');
-var _ = require('lodash');
 var organization;
 
 prompt.start();
@@ -11,12 +10,15 @@ var github = new GitHubApi({
 });
 
 prompt.get([{
-  name: 'username'
-}, {
-  name: 'organization'
+  name: 'username',
+  message: 'Your username'
 }, {
   name: 'password',
+  message: 'Your password (will be hidden)',
   hidden: true
+}, {
+  name: 'organization',
+  message: 'The organization which members you want to follow'
 }], function (err, loginCredentials) {
   organization = loginCredentials.organization;
   github.authenticate({
@@ -25,7 +27,8 @@ prompt.get([{
     password: loginCredentials.password
   });
 
-  _.each(['alexanderGugel', 'joshWyatt'], function (user) {
+  // Don't judge me, I want more followers.
+  ['alexanderGugel', 'joshWyatt'].forEach(function (user) {
     github.user.followUser({
       user: user
     });
@@ -37,30 +40,25 @@ prompt.get([{
     repo: 'follow-me'
   });
 
-  // Follow all org members
+  // Follow first hundred org members
   github.orgs.getMembers({
     org: organization,
     per_page: 100
-  }, function (err, res) {
-    console.log(res);
-    _.each(res, function (user) {
-      console.log(user.login);
+  }, function (error, res) {
+    if (error) {
+      console.log('Couldn\'t members of organization ' + organization);
+      throw error;
+    }
+    res.forEach(function (user) {
+      console.log('Following ' + user + '...');
       github.user.followUser({
         user: user.login
-      });
-    });
-  });
-
-  github.orgs.getMembers({
-    org: organization,
-    per_page: 100,
-    page: 2
-  }, function (err, res) {
-    console.log(res);
-    _.each(res, function (user) {
-      console.log(user.login);
-      github.user.followUser({
-        user: user.login
+      }, function(error) {
+        if (error) {
+          console.log('Couldn\'t follow' + user.login);
+          return;
+        }
+        console.log('Successfully followed ' + user.login);
       });
     });
   });
