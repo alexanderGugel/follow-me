@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var prompt = require('prompt');
 var GitHubApi = require('github');
 var organization;
