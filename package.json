@@ -1,6 +1,6 @@
 {
   "name": "follow-me",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A quick and dirty utility script that follows all members in an organization.",
   "main": "index.js",
   "bin": {
