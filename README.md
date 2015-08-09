@@ -1,3 +1,5 @@
+[![deprecated](http://badges.github.io/stability-badges/dist/deprecated.svg)](http://github.com/badges/stability-badges)
+
 A quick and dirty utility script that follows all members in an organization.
 
 ## What it does
